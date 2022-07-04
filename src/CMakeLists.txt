@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp "sprite.h" "body.h" "body.cpp" "hair.h" "hair.cpp" "top.h" "top.cpp" "pants.h" "pants.cpp" "sprite.cpp" "shoes.h" "shoes.cpp" "user_interface.h" "user_interface.cpp")
 
 # Add config.h.in file
 configure_file(config.h.in config.h)

@@ -4,6 +4,9 @@
 
 #include "config.h"
 
+#include <fstream>
+#include <iostream>
+
 #include "body.h"
 #include "hair.h"
 #include "top.h"
@@ -29,6 +32,10 @@ int main() {
     enum item { i_hair, i_top, i_pants, i_shoes, i_body };
     item myItem = i_hair;
 
+    //class to open and close files
+    //tried as pointer but then the code using it doesnt work properly
+    std::fstream textStream;
+
     body* template_body = new body;
     hair* template_hair = new hair;
     top* template_top = new top;
@@ -45,6 +52,20 @@ int main() {
         if (IsKeyPressed(KEY_SPACE))
         {
             ToggleFullscreen();
+        }
+
+        if (IsKeyPressed(KEY_ENTER))
+        {
+            //why doesnt it work?
+            //txt files open
+            textStream.open("./assets/txt/test.txt", std::ios::out);
+            if (textStream.is_open()) std::cout << "is open." << std::endl;
+            //like with cout << text is written in file
+            textStream << "This is a test file." << std::endl;
+            
+            std::cout << "Has been written." << std::endl;
+            //file is closed again
+            textStream.close();
         }
 
         //switch item case hair, top, pants, shoes

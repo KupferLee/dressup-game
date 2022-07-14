@@ -13,6 +13,7 @@
 #include "pants.h"
 #include "shoes.h"
 #include "user_interface.h"
+#include "animation.h"
 
 int main() {
     // Raylib initialization
@@ -42,6 +43,7 @@ int main() {
     pants* template_pants = new pants;
     shoes* template_shoes = new shoes;
     user_interface* template_UI = new user_interface;
+    animation* testAnimation = new animation;
 
     Texture2D myTexture = LoadTexture("assets/graphics/testimage.png");
     Texture2D background_1 = LoadTexture("assets/graphics/backgrounds/background_1.png");
@@ -185,6 +187,7 @@ int main() {
             break;
         }
         
+        testAnimation->drawPro();
 
         EndDrawing();
     }
@@ -197,6 +200,7 @@ int main() {
     template_pants->unload_texture();
     template_shoes->unload_texture();
     template_top->unload_texture();
+    testAnimation->unload_texture();
 
     // Close window and OpenGL context
     CloseWindow();
